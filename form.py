@@ -5,8 +5,10 @@ from datetime import datetime
 from functions import get_workouts_for_bodypart, get_entries_for_latest_day, insert_workout, update_workout_elo
 import altair as alt
 
+passw = st.secrets["passw"]
+
 # MongoDB Connection
-client = MongoClient("mongodb+srv://marcfolchpomares:AstonMartin1@mycluster.e19nlo1.mongodb.net/?retryWrites=true&w=majority&appName=mycluster")
+client = MongoClient(f"mongodb+srv://marcfolchpomares:{passw}@mycluster.e19nlo1.mongodb.net/?retryWrites=true&w=majority&appName=mycluster")
 db = client['gymelo']  # Replace 'gymelo' with your database name
 collection = db['workout_data']  # Replace 'workout_data' with your collection name
 cursor = collection.find()
